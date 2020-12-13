@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Buildersoft.Andy.X.Terminal": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
