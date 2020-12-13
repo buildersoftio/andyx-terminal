@@ -1,7 +1,7 @@
-What is Andy X?
+What is Andy X Terminal?
 ============
 
-Andy X is an open-source distributed streaming platform designed to deliver the best performance possible for high-performance data pipelines, streaming analytics, streaming between microservices and data integrations.
+Andy X is an open-source distributed streaming platform designed to deliver the best performance possible for high-performance data pipelines, streaming analytics, streaming between microservices and data integrations. Andy X Terminal will help to control resources inside Andy X
 
 ## Get Started
 
