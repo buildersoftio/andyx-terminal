@@ -15,7 +15,4 @@ RUN dotnet publish "Buildersoft.Andy.X.Terminal.csproj" -c Release -o /app/publi
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD echo "Buildersoft Andy X Terminal"
-CMD echo "(c) 2020 Buildersoft. All rights reserved."
-CMD echo "To run terminal execute command 'dotnet Buildersoft.Andy.X.Terminal.dll'"
-#ENTRYPOINT ["dotnet", "Buildersoft.Andy.X.Terminal.dll"]
+ENTRYPOINT ["dotnet", "Buildersoft.Andy.X.Terminal.dll"]
