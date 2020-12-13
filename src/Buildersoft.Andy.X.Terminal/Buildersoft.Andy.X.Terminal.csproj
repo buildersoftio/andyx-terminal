@@ -1,25 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk;Microsoft.NET.Sdk.Publish">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    
     <Authors>Buildersoft</Authors>
     <Company>Buildersoft</Company>
     <Product>Buildersoft Andy X Terminal</Product>
     <Description>Andy X Terminal will help you manage Andy X Resources.</Description>
     <Copyright>Copyright © Buildersoft 2020</Copyright>
     <Version>1.0.20.73</Version>
-    
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <ApplicationIcon>Assets\andyx-icon.ico</ApplicationIcon>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Buildersoft.Andy.X.Client" Version="1.0.20.73" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
-
 </Project>
