@@ -7,14 +7,23 @@
     <Product>Buildersoft Andy X Terminal</Product>
     <Description>Andy X Terminal will help you manage Andy X Resources.</Description>
     <Copyright>Copyright © Buildersoft 2020</Copyright>
-    <Version>1.0.20.73</Version>
+    <Version>1.0.20.74</Version>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <ApplicationIcon>Assets\andyx-icon.ico</ApplicationIcon>
+    <PackageId>Buildersoft Andy X Terminal</PackageId>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIcon>andyx-icon.ico</PackageIcon>
+    <RepositoryUrl>https://github.com/buildersoftdev/andyxterminal</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Buildersoft.Andy.X.Client" Version="1.0.20.73" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\andyx-icon.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
