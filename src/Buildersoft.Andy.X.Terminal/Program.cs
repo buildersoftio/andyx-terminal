@@ -35,6 +35,9 @@ namespace Buildersoft.Andy.X.Terminal
                 else if (input.StartsWith("book"))
                     Book.ShowBook(input);
 
+                else if (input.StartsWith("schema"))
+                    Schema.ShowSchema(input);
+
                 else if (input.StartsWith("reader"))
                     Reader.StartReading(input);
 

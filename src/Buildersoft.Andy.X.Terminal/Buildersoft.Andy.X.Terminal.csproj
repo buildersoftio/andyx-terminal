@@ -15,6 +15,9 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIcon>andyx-icon.ico</PackageIcon>
     <RepositoryUrl>https://github.com/buildersoftdev/andyxterminal</RepositoryUrl>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>Buildersoft.Andy.X.Terminal_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Buildersoft.Andy.X.Client" Version="1.1.20.57" />
