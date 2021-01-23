@@ -6,8 +6,8 @@
     <Company>Buildersoft</Company>
     <Product>Buildersoft Andy X Terminal</Product>
     <Description>Andy X Terminal will help you manage Andy X Resources.</Description>
-    <Copyright>Copyright © Buildersoft 2020</Copyright>
-    <Version>1.0.20.74</Version>
+    <Copyright>Copyright © Buildersoft 2021</Copyright>
+    <Version>1.1.20.75</Version>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <ApplicationIcon>Assets\andyx-icon.ico</ApplicationIcon>

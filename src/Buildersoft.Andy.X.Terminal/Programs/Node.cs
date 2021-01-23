@@ -60,12 +60,12 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                 }
                 Console.Write("\nSelect index of node you want to update: ");
                 int selectedIndex = Convert.ToInt32(Console.ReadLine());
-                if(selectedIndex< configurationRepo.Configuration.Nodes.Count)
+                if (selectedIndex < configurationRepo.Configuration.Nodes.Count)
                 {
                     Console.WriteLine($"Name: [read-only] {configurationRepo.Configuration.Nodes[selectedIndex].Name}");
                     Console.WriteLine($"Url: [read-only] {configurationRepo.Configuration.Nodes[selectedIndex].Url}");
                     Console.WriteLine($"Tenant: [read-only] {configurationRepo.Configuration.Nodes[selectedIndex].Tenant}");
-                    
+
                     Console.Write("Token: ");
                     configurationRepo.Configuration.Nodes[selectedIndex].Token = Console.ReadLine();
 
@@ -75,6 +75,27 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                 else
                 {
                     Console.WriteLine($"Node with index {selectedIndex} does not exists");
+                }
+            }
+            else if (input.StartsWith("node delete"))
+            {
+                Console.WriteLine("Nodes registered are in the list below");
+                int i = 0;
+                foreach (var node in configurationRepo.Configuration.Nodes)
+                {
+                    Console.WriteLine($"[{i}] >> Name [{node.Name}]; Tenant [{node.Tenant}]; Url [{node.Url}]");
+                    i++;
+                }
+                Console.Write("\nSelect index of node you want to delete: ");
+                int selectedIndex = Convert.ToInt32(Console.ReadLine());
+                if (selectedIndex < configurationRepo.Configuration.Nodes.Count)
+                {
+                    Console.Write($"Do you want to delete {configurationRepo.Configuration.Nodes[selectedIndex].Name}? (y/N): ");
+                    if (Console.ReadLine() == "y")
+                    {
+                        configurationRepo.DeleteNode(configurationRepo.Configuration.Nodes[selectedIndex]);
+                        Console.WriteLine("\nNode has been remove");
+                    }
                 }
             }
             else if (input.StartsWith("node add"))
@@ -101,7 +122,7 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                 Console.WriteLine("Node you are connected to is:");
                 Console.WriteLine($"Node name: {Web.Hosts.CurrentNodeName}");
                 Console.WriteLine($"Node url: {Web.Hosts.CurrentHostUrl}");
-                Console.WriteLine($"Node tenant: {Web.Hosts.CurrentToken}");
+                Console.WriteLine($"Node token: {Web.Hosts.CurrentToken}");
             }
             else
             {
@@ -110,7 +131,7 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                 Console.WriteLine("");
 
                 Console.WriteLine($"Your command: {input}");
-                Console.WriteLine("For 'node' only these functions are allowed 'list', 'edit', 'add', 'select' and 'detail'");
+                Console.WriteLine("For 'node' only these functions are allowed 'list', 'edit', 'add', 'delete', 'select' and 'detail'");
                 Console.WriteLine("");
             }
         }

@@ -9,7 +9,7 @@ namespace Buildersoft.Andy.X.Terminal
         static void Main(string[] args)
         {
             Console.WriteLine("Buildersoft Andy X Terminal");
-            Console.WriteLine("(c) 2020 Buildersoft. All rights reserved.");
+            Console.WriteLine("(c) 2021 Buildersoft. All rights reserved.");
             Console.Title = "Buildersoft Andy X Terminal";
 
             var configurationRepo = new ConfigurationRepository();
@@ -46,6 +46,11 @@ namespace Buildersoft.Andy.X.Terminal
 
                 else if (input.StartsWith("exit"))
                     Environment.Exit(0);
+                else
+                {
+                    if (input != "")
+                        Console.WriteLine($"'{input}' is not recognized as a function. \nTry 'help' to learn the functions.\n");
+                }
             }
         }
     }
