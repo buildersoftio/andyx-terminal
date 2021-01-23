@@ -38,6 +38,12 @@ namespace Buildersoft.Andy.X.Terminal.Repositories
             StoreInToFile();
         }
 
+        public void DeleteNode(Node node)
+        {
+            Configuration.Nodes.Remove(node);
+            StoreInToFile();
+        }
+
         private void StoreInToFile()
         {
             string configDirectory = Path.GetDirectoryName(AppContext.BaseDirectory);

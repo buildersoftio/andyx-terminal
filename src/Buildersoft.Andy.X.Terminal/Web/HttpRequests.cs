@@ -226,6 +226,34 @@ namespace Buildersoft.Andy.X.Terminal.Web
                 Console.WriteLine();
             }
         }
+        public static void GetSchema(string url, string tenantName, string productName, string componentName, string bookName)
+        {
+
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("x-andy-x-tenant-Authorization", $"Bearer {Hosts.CurrentToken}");
+            client.DefaultRequestHeaders.Add("x-andy-x-tenant", tenantName);
+
+            HttpResponseMessage httpResponseMessage = client.GetAsync(url).Result;
+            string content = httpResponseMessage.Content.ReadAsStringAsync().Result;
+            if (httpResponseMessage.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                JObject jsonContent = JObject.Parse(content);
+                Console.WriteLine($"Schema of {bookName}:");
+                Console.WriteLine();
+                Console.WriteLine(jsonContent);
+                Console.WriteLine("# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Tenant '{tenantName}' or product '{productName}' or component '{componentName}' does not exists");
+                Console.WriteLine("# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #");
+                Console.WriteLine();
+            }
+        }
+
     }
 
 }
