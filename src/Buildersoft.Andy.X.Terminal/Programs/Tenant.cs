@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Buildersoft.Andy.X.Terminal.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -22,6 +23,13 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                 ReadTenantToAndyX(input);
                 Console.WriteLine("");
             }
+            else if (input.StartsWith("tenant authorize"))
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Tenant");
+                AuthorizeTenant(input);
+                Console.WriteLine("");
+            }
             else
             {
                 Console.WriteLine("");
@@ -29,7 +37,43 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                 Console.WriteLine("");
 
                 Console.WriteLine($"Your command: {input}");
-                Console.WriteLine("For tenant only two functions are allowed 'add' and 'view'");
+                Console.WriteLine("Tenant accepts functions like 'add', 'view', 'authorize'");
+                Console.WriteLine("");
+            }
+        }
+
+        private static void AuthorizeTenant(string input)
+        {
+            string[] inputSplitted = input.Split(" ");
+            if (inputSplitted.Length > 2)
+            {
+                string tenantName = inputSplitted[2];
+                if (tenantName == Web.Hosts.CurrentTenant)
+                {
+                    string url = $"https://{Web.Hosts.CurrentHostUrl}/api/v1/Tenants/{tenantName}/access_token";
+
+
+                    Console.WriteLine($"Tenant: {tenantName}");
+                    Console.Write("Tenant id: ");
+                    string tenantId = Console.ReadLine();
+                    Console.Write("Security key: ");
+                    string securityKey = Console.ReadLine();
+
+                    Console.WriteLine("-----------------------------------------------");
+                    Console.WriteLine("Requesting token");
+                    Web.HttpRequests.AuthorizeTenant(url, tenantName, tenantId, securityKey);
+                }
+                else
+                {
+                    Console.WriteLine($"Your command: {input}");
+                    Console.WriteLine("You cannot authorize other tenants, create a node for that specific tenant and try again.");
+                    Console.WriteLine("");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Your command: {input}");
+                Console.WriteLine("Tenant accepts functions like 'add', 'view', 'authorize'");
                 Console.WriteLine("");
             }
         }
@@ -52,7 +96,7 @@ namespace Buildersoft.Andy.X.Terminal.Programs
             else
             {
                 Console.WriteLine($"Your command: {input}");
-                Console.WriteLine("For tenant only two functions are allowed 'add' and 'view'");
+                Console.WriteLine("Tenant accepts functions like 'add', 'view', 'authorize'");
                 Console.WriteLine("");
             }
         }
@@ -74,7 +118,7 @@ namespace Buildersoft.Andy.X.Terminal.Programs
             else
             {
                 Console.WriteLine($"Your command: {input}");
-                Console.WriteLine("For tenant only two functions are allowed 'add' and 'view'");
+                Console.WriteLine("Tenant accepts functions like 'add', 'view', 'authorize'");
                 Console.WriteLine("");
             }
         }

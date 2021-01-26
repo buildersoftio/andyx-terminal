@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
+using System.Text;
 
 namespace Buildersoft.Andy.X.Terminal.Web
 {
@@ -55,6 +56,33 @@ namespace Buildersoft.Andy.X.Terminal.Web
                 Console.WriteLine();
             }
         }
+        public static void AuthorizeTenant(string url, string tenantName, string tenantId, string securityKey)
+        {
+            HttpClient client = new HttpClient();
+            string bodyJson = "{\"tenantId\": \"" + tenantId + "\", \"securityKey\": \"" + securityKey + "\"}";
+            var body = new StringContent(bodyJson, UnicodeEncoding.UTF8, "application/json");
+
+            HttpResponseMessage httpResponseMessage = client.PostAsync(url, body).Result;
+            string content = httpResponseMessage.Content.ReadAsStringAsync().Result;
+            if (httpResponseMessage.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                JObject jsonContent = JObject.Parse(content);
+                Console.WriteLine($"Details of Tenant authorization are below");
+                Console.WriteLine(jsonContent);
+                Console.WriteLine("# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Failed to create token for {tenantName}, please check tenantId and securityKey");
+                Console.WriteLine("# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #");
+                Console.WriteLine();
+            }
+
+        }
+
+
         public static void CreateProduct(string url, string tenantName, string productName)
         {
             HttpClient client = new HttpClient();
@@ -201,7 +229,7 @@ namespace Buildersoft.Andy.X.Terminal.Web
         }
         public static void GetBook(string url, string tenantName, string productName, string componentName, string bookName)
         {
-            
+
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("x-andy-x-tenant-Authorization", $"Bearer {Hosts.CurrentToken}");

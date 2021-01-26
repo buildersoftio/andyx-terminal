@@ -30,6 +30,7 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                         Hosts.CurrentNodeName = configurationRepo.Configuration.Nodes[indexSelected].Name;
                         Hosts.CurrentHostUrl = configurationRepo.Configuration.Nodes[indexSelected].Url;
                         Hosts.CurrentToken = configurationRepo.Configuration.Nodes[indexSelected].Token;
+                        Hosts.CurrentTenant = configurationRepo.Configuration.Nodes[indexSelected].Tenant;
                     }
                 }
             }
@@ -44,6 +45,7 @@ namespace Buildersoft.Andy.X.Terminal.Programs
                         Hosts.CurrentNodeName = configurationRepo.Configuration.Nodes[selectedIndex].Name;
                         Hosts.CurrentHostUrl = configurationRepo.Configuration.Nodes[selectedIndex].Url;
                         Hosts.CurrentToken = configurationRepo.Configuration.Nodes[selectedIndex].Token;
+                        Hosts.CurrentTenant = configurationRepo.Configuration.Nodes[selectedIndex].Tenant;
                     }
                 }
                 else
