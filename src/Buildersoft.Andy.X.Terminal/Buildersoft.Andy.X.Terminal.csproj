@@ -10,10 +10,10 @@
     <Version>1.1.20.75</Version>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
-    <ApplicationIcon>Assets\andyx-icon.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\andyx-terminal-icon.ico</ApplicationIcon>
     <PackageId>Buildersoft Andy X Terminal</PackageId>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageIcon>andyx-icon.ico</PackageIcon>
+    <PackageIcon>andyx-terminal-icon.ico</PackageIcon>
     <RepositoryUrl>https://github.com/buildersoftdev/andyxterminal</RepositoryUrl>
     <SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
@@ -24,7 +24,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\andyx-icon.ico">
+    <None Include="Assets\andyx-terminal-icon.ico">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
